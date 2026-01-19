@@ -1,0 +1,224 @@
+Azure Project: Manage Azure Active Directory (Microsoft Entra ID) Identities
+Project Level
+
+Novice (Beginner-friendly, Azure Portal only)
+
+This project is designed as an entry-level, step-by-step Azure Portal lab focused on identity management fundamentals using Microsoft Entra ID (formerly Azure Active Directory). It assumes no prior Azure administration experience.
+
+Project Objective
+
+Demonstrate the ability to:
+
+Create and manage an Azure AD (Entra ID) tenant
+
+Create and configure Azure AD users
+
+Create Azure AD groups with assigned and dynamic membership
+
+Invite and manage guest (B2B) users
+
+This project reflects real-world tasks performed by Cloud Support and Junior Systems Administrators.
+
+Skills Demonstrated
+
+Identity and Access Management (IAM)
+
+Microsoft Entra ID administration
+
+Azure Portal navigation
+
+User and group lifecycle management
+
+Basic governance and security concepts
+
+Environment & Tools
+
+Azure Portal
+
+Microsoft Entra ID (Azure AD)
+
+Azure Free Tier Subscription
+
+Architecture Overview (Logical)
+
+Azure Subscription
+
+Entra ID Tenant
+
+Internal Users
+
+Security Groups (Assigned & Dynamic)
+
+External Guest User
+
+Step-by-Step Deployment & Configuration
+Step 1: Verify or Create an Entra ID Tenant
+
+Objective: Ensure an Entra ID tenant exists for identity management.
+
+Steps:
+
+Sign in to the Azure Portal
+
+Search for Microsoft Entra ID
+
+Review the Overview page to confirm a tenant exists
+
+Optional (Create New Tenant):
+
+Microsoft Entra ID → Manage tenants → Create
+
+Tenant type: Microsoft Entra ID
+
+Provide:
+
+Organization name
+
+Initial domain name
+
+Region
+
+Review + Create
+
+Expected Outcome:
+
+Entra ID tenant is active and accessible
+
+📸 Screenshot: Entra ID Overview
+
+Step 2: Create Azure AD Users
+
+Objective: Create internal users with realistic attributes.
+
+Steps:
+
+Microsoft Entra ID → Users → New user → Create new user
+
+Create at least 3 users, for example:
+
+admin.user
+
+it.support
+
+hr.employee
+
+Configure:
+
+Display name
+
+Username
+
+Job title
+
+Department
+
+Usage location
+
+Save generated passwords securely
+
+Expected Outcome:
+
+Users appear in the Users list
+
+📸 Screenshot: User List
+
+Step 3: Create a Security Group (Assigned Membership)
+
+Objective: Demonstrate manual group-based access control.
+
+Steps:
+
+Microsoft Entra ID → Groups → New group
+
+Group type: Security
+
+Group name: IT-Assigned-SG
+
+Membership type: Assigned
+
+Add one or more users manually
+
+Expected Outcome:
+
+Selected users are members of the group
+
+📸 Screenshot: Assigned Group Members
+
+Step 4: Create a Security Group (Dynamic Membership)
+
+Objective: Demonstrate rule-based group membership.
+
+Steps:
+
+Microsoft Entra ID → Groups → New group
+
+Group type: Security
+
+Group name: IT-Dynamic-SG
+
+Membership type: Dynamic User
+
+Add rule:
+
+(user.department -eq "IT")
+
+Validate and save
+
+Expected Outcome:
+
+Users with Department = IT are automatically added
+
+📸 Screenshot: Dynamic Group Rule
+
+Step 5: Manage Azure AD Guest Users (B2B)
+
+Objective: Invite and manage an external user.
+
+Steps:
+
+Microsoft Entra ID → Users → New user → Invite external user
+
+Enter a valid external email address
+
+Send invitation
+
+Assign guest user to a security group
+
+Expected Outcome:
+
+Guest user listed with User Type = Guest
+
+📸 Screenshot: Guest User Properties
+
+Validation Checklist
+
+
+
+
+Security & Best Practices
+
+Use groups instead of direct user permissions
+
+Apply least privilege access
+
+Separate admin and standard users
+
+Use dynamic groups for scalability
+
+Lessons Learned
+
+Dynamic groups rely on accurate user attributes
+
+Guest users have limited default permissions
+
+Tenant context switching can be confusing for beginners
+
+Next Project Level
+
+Intermediate Project Preview:
+
+Azure RBAC with Entra ID groups
+
+Role assignments at different scopes
+
+Identity integration with Azure resources
