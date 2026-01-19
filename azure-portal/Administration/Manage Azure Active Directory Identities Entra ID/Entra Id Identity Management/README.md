@@ -77,6 +77,8 @@ By completing this project, you will demonstrate the ability to:
 * Entra ID tenant is active and accessible
 
 📸 Screenshot: Entra ID Overview
+<img width="1828" height="513" alt="image" src="https://github.com/user-attachments/assets/f02ac699-eb56-4212-99f4-4d9b4528ca26" />
+
 
 ---
 
@@ -106,6 +108,7 @@ By completing this project, you will demonstrate the ability to:
 * Users appear in the Users list and can be managed
 
 📸 Screenshot: Azure AD Users List
+<img width="1451" height="655" alt="image" src="https://github.com/user-attachments/assets/5dffc67d-0968-4600-9437-60d8b875b5fa" />
 
 ---
 
@@ -126,7 +129,8 @@ By completing this project, you will demonstrate the ability to:
 * Selected users are explicitly assigned to the group
 
 📸 Screenshot: Assigned Security Group Members
-
+<img width="1578" height="862" alt="image" src="https://github.com/user-attachments/assets/aaad1a58-8bf5-4285-bb26-c0b75209379c" />
+<img width="1609" height="627" alt="image" src="https://github.com/user-attachments/assets/fb3f38bd-1bef-48be-abeb-9d9b642cc99f" />
 ---
 
 ### Step 4: Create a Security Group (Dynamic Membership)
