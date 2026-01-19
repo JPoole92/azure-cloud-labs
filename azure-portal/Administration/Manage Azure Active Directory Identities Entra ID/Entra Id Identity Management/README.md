@@ -1,4 +1,4 @@
-# Novice Azure Project: Manage Azure Active Directory (Microsoft Entra ID) Identities
+# Azure Project: Manage Azure Active Directory (Microsoft Entra ID) Identities
 
 ## Project Level
 
