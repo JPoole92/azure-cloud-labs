@@ -1,172 +1,200 @@
-# Intermediate Azure Project: Manage Microsoft Entra ID (Azure Active Directory) Identities
+# Intermediate Azure Project – Enterprise Identity Administration with Microsoft Entra ID
+
+## Project Level
+
+**Intermediate (System Administrator / Cloud Support Level)**
+
+## Project Title
+
+**Enterprise Identity Administration and Delegated Access Using Microsoft Entra ID**
+
+---
 
 ## Project Overview
 
-This **intermediate-level Azure project** builds upon the Novice Entra ID fundamentals and demonstrates **deeper identity administration skills** using **Microsoft Entra ID with Premium licensing**.
+This Intermediate-level project demonstrates **enterprise-ready identity administration** using Microsoft Entra ID (formerly Azure Active Directory). Unlike the Novice project, which focuses on basic object creation, this project emphasizes **role separation, delegated administration, identity lifecycle management, and audit awareness**.
 
-The focus of this project is managing identities in a **controlled, enterprise-style tenant** where the administrator has appropriate permissions and licensing. This reflects real-world environments where identity services must scale, remain secure, and follow structured standards.
+This project simulates how identity is managed in a real organization where:
+
+* Global Administrator access is restricted
+* Administrative responsibilities are delegated using least privilege
+* User access changes over time
+* Identity-related actions are auditable
 
 ---
 
 ## Skills Demonstrated
 
-* Microsoft Entra ID tenant administration
-* User lifecycle management
-* Security group strategy and management
-* Role-based access awareness
-* External (guest) identity management
-* Identity documentation and validation
+* Role-based access control (RBAC) in Entra ID
+* Delegated administration using built-in admin roles
+* Identity lifecycle management (Joiner / Mover / Leaver)
+* Group-based access management
+* Guest user governance
+* Audit and sign-in log analysis
+* Enterprise naming and governance standards
 
 ---
 
-## Environment
+## Prerequisites
 
-* **Platform:** Microsoft Azure Portal
-* **Directory Service:** Microsoft Entra ID
-* **License Level:** Microsoft Entra ID Premium P1 or P2
-* **Admin Role:** Global Administrator
-* **Tools Used:** Azure Portal (GUI)
+* Microsoft Entra ID tenant (Free or Premium)
+* Global Administrator access for initial setup
+* Azure Portal access
 
-> This project assumes access to an Entra ID Premium tenant (for example, via Microsoft 365 Developer Program or enterprise subscription).
+> Note: Conditional Access, Dynamic Groups, and PIM are intentionally excluded and reserved for the **Advanced** project.
 
 ---
 
-## Project Objectives
+## Scenario
 
-* Create and manage users using standardized attributes
-* Create and manage security groups with **assigned membership**
-* Administer and validate tenant-level configuration
-* Manage guest users with improved governance awareness
+You are acting as a **System Administrator** for a mid-sized organization. Your task is to implement a secure and scalable identity administration model that avoids day-to-day Global Admin usage and follows least-privilege principles.
 
 ---
 
 ## Step-by-Step Implementation
 
-### Step 1: Verify Tenant and Administrator Access
+### Step 1: Review Administrative Roles
 
-**Objective:** Confirm correct tenant and permissions before making changes.
+**Objective:** Understand and plan role separation.
 
-1. Sign in to [https://entra.microsoft.com](https://entra.microsoft.com)
-2. Switch to the **Premium-enabled tenant**
-3. Navigate to **Microsoft Entra ID → Roles and administrators**
-4. Select **Global Administrator** and confirm your account is listed
+1. Navigate to **Microsoft Entra ID → Roles and administrators**
+2. Review built-in roles:
 
-📸 **Screenshot:** Global Administrator role membership
+   * Global Administrator
+   * User Administrator
+   * Groups Administrator
+3. Document why Global Admin should be restricted
 
----
-
-### Step 2: Review Tenant Configuration
-
-**Objective:** Understand enterprise tenant settings and identity scope.
-
-1. Navigate to **Microsoft Entra ID → Overview**
-2. Review:
-
-   * Tenant name and ID
-   * Primary domain
-   * Region
-3. Navigate to **Properties** and review directory settings
-
-📸 **Screenshot:** Entra ID Overview (tenant details)
+📸 Screenshot: Roles and administrators overview
 
 ---
 
-### Step 3: Create and Configure Entra ID Users
+### Step 2: Create Delegated Admin Accounts
 
-**Objective:** Implement consistent identity configuration.
+**Objective:** Separate administrative duties.
 
 1. Go to **Microsoft Entra ID → Users → New user**
-2. Create multiple users using standardized attributes:
+2. Create the following accounts:
 
-   * Display name
-   * User principal name
-   * Department
-   * Job title
-3. Assign licenses if applicable
+   * `it-useradmin@tenant.onmicrosoft.com`
+   * `it-groupsadmin@tenant.onmicrosoft.com`
+3. Assign roles:
 
-📸 **Screenshot:** Users list with multiple configured users
+   * User Administrator → it-useradmin
+   * Groups Administrator → it-groupsadmin
+
+📸 Screenshot: Role assignment per admin account
 
 ---
 
-### Step 4: Create Security Groups (Assigned Membership)
+### Step 3: Implement Role-Based Security Groups
 
-**Objective:** Organize users using structured group design.
+**Objective:** Manage access using groups instead of individuals.
 
 1. Navigate to **Microsoft Entra ID → Groups → New group**
-2. Configure:
+2. Create the following security groups:
 
-   * Group type: **Security**
-   * Group name (example): `IT-Assigned-SG`
-   * Membership type: **Assigned**
-3. Add users based on department or role
+   * `SG-IT-Helpdesk`
+   * `SG-IT-SysAdmins`
+3. Assign members appropriately
+4. Use groups to control access rather than assigning roles directly to users
 
-📸 **Screenshot:** Security group showing assigned members
-
----
-
-### Step 5: Manage Guest Users (B2B)
-
-**Objective:** Demonstrate controlled external collaboration.
-
-1. Navigate to **Microsoft Entra ID → Users → New user → Invite external user**
-2. Invite at least one external user
-3. Review guest properties:
-
-   * User type
-   * Invitation status
-   * Sign-in activity
-
-📸 **Screenshot:** Guest user properties page
+📸 Screenshot: Security group membership
 
 ---
 
-### Step 6: Validate and Document Identity Structure
+### Step 4: Identity Lifecycle Management (Joiner / Mover / Leaver)
 
-**Objective:** Confirm correctness and readiness for scaling.
+**Objective:** Demonstrate real-world user administration.
 
-1. Review all users and groups
-2. Verify:
+#### Joiner
 
-   * Naming conventions
-   * Department alignment
-   * Group membership accuracy
-3. Document findings
+1. Create a new user account (e.g., `jane.doe@tenant.onmicrosoft.com`)
+2. Assign the user to the appropriate security group
 
-📸 **Screenshot:** Users and groups overview
+#### Mover
 
----
+1. Update the user’s department or role
+2. Adjust group membership accordingly
 
-## Validation and Results
+#### Leaver
 
-* Users created with standardized attributes
-* Security groups implemented and populated correctly
-* Tenant configuration reviewed and documented
-* Guest users successfully managed
+1. Disable the user account
+2. Remove group memberships
+
+📸 Screenshot: User properties before and after changes
 
 ---
 
-## Key Learnings
+### Step 5: Guest User Governance
 
-* Premium licensing enables enterprise identity control
-* Global Administrator role is required for tenant-level management
-* Structured user and group design improves scalability
-* Guest access requires visibility and review
+**Objective:** Control external access.
 
----
+1. Navigate to **Microsoft Entra ID → Users → New guest user**
+2. Invite a guest user
+3. Assign minimal access
+4. Review guest account properties
+5. Remove or block the guest user
 
-## Limitations
-
-* Dynamic group membership and Conditional Access are intentionally excluded
-* Automation (PowerShell / CLI) is deferred to advanced projects
+📸 Screenshot: Guest user overview
 
 ---
 
-## Next Steps
+### Step 6: Audit and Sign-In Log Review
 
-This intermediate project prepares the foundation for:
+**Objective:** Demonstrate audit awareness.
 
-* **Advanced Entra ID projects** (governance and security)
-* Conditional Access policy design
-* Privileged Identity Management (PIM)
+1. Navigate to **Microsoft Entra ID → Monitoring → Audit logs**
+2. Filter for:
+
+   * Role assignments
+   * User management actions
+3. Review **Sign-in logs** for failed or successful attempts
+
+📸 Screenshot: Filtered audit logs
 
 ---
+
+### Step 7: Governance Standards Documentation
+
+**Objective:** Show administrative maturity.
+
+Document the following in this README:
+
+* Naming conventions for users and groups
+* Rules for admin role assignment
+* When Global Admin access is allowed
+* Identity change management approach
+
+📸 Screenshot: Governance section in README
+
+---
+
+## Validation Checklist
+
+* [ ] Admin roles are delegated
+* [ ] Global Admin is not used for daily tasks
+* [ ] Users are managed through lifecycle stages
+* [ ] Groups are used for access control
+* [ ] Guest access is reviewed and removed
+* [ ] Audit logs show identity changes
+
+---
+
+## Key Takeaways
+
+This project demonstrates the ability to:
+
+* Administer identities at scale
+* Apply least-privilege principles
+* Manage access changes responsibly
+* Operate within enterprise governance standards
+
+This project aligns with **System Administrator** and **Cloud Support Engineer** responsibilities.
+
+---
+
+## Next Project
+
+**Advanced Azure Project – Secure Identity Architecture with Microsoft Entra ID**
+(Focus: Dynamic Groups, Conditional Access, PIM, Identity Protection, and Automation)
