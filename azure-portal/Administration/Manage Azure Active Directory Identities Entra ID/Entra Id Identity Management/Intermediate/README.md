@@ -1,11 +1,6 @@
 # Intermediate Azure Project – Enterprise Identity Administration with Microsoft Entra ID
 
-## Project Level
-
-**Intermediate (System Administrator / Cloud Support Level)**
-
 ## Project Title
-
 **Enterprise Identity Administration and Delegated Access Using Microsoft Entra ID**
 
 ---
